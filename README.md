@@ -1,12 +1,16 @@
 # Indice
 
-🟢 ULTIMATO
+🟢 COMPLETO
 🟡 DA SISTEMARE
 🟠 DA FINIRE
 🔴 RIFARE
 
+- [Intro](#Intro)
+  - [Definizione API RESTful](#definizione-api-restful) 🟢
+  - [Definizione URL e URI](#definizione-uri-e-url) 🟡
 - [Express](#express)
-  - [Inizializzazione🔴](#middleware-di-errore-più-complesso-con-spunti-interessanti)
+  - [Cos'è Express?](#cosè-express) 🟢
+  - [Inizializzazione progetto🔴](#middleware-di-errore-più-complesso-con-spunti-interessanti)
   - [Routing🔴](#cose-utili-per-il-routing)
   - [Tenere traccia delle rotte🟡](#tenere-traccia-delle-rotte)
   - [Middlewares](#middlewares)
@@ -27,14 +31,51 @@
   - [Variabili d'ambiente](#utilizzo-variabili-dambiente)
 - [Altro 🟠](#altro)
 
+# Intro
+
+## Definizione API RESTful
+
+Un'**API RESTful** è un'interfaccia di programmazione delle applicazioni che aderisce ai principi dell'architettura REST (Representational State Transfer). Questo tipo di API utilizza i metodi standard HTTP (GET, POST, PUT, DELETE...) per interagire con risorse rappresentate, di solito, in formati come JSON o XML. In una API RESTful, <u>ogni risorsa è identificata univocamente tramite URI</u> (Uniform Resource Identifiers) e le operazioni disponibili su queste risorse sono definite dai metodi HTTP. Queste API sono state progettate per essere stateless, il che significa che ogni richiesta HTTP deve contenere tutte le informazioni necessarie per comprenderla, senza richiedere che il server memorizzi dati o stati della sessione dell'utente.
+
+<img src="./immagini/RESTful_API.png" width="700"/>
+
+## Definizione URI e URL
+
+In informatica, lo Uniform Resource Identifier (in acronimo `URI`) <u>è una sequenza di caratteri che identifica universalmente ed univocamente una risorsa</u>. Sono esempi di URI: un indirizzo web (URL), un documento, un indirizzo di posta elettronica, il codice ISBN di un libro, un numero di telefono col prefisso internazionale.
+
+Un Uniform Resource Locator, noto con l'acronimo `URL` (lett. "localizzatore uniforme di risorse"), <u>è una sequenza di caratteri che identifica univocamente l'indirizzo di una risorsa su una rete di computer</u>, come ad esempio un documento, un'immagine, un video, tipicamente presente su un host server e resa accessibile a un client. Un esempio di URL (caso specifico di URI):
+
+`https://www.example.com/articles/2023/03/15/my-article`
+
+In questo esempio:
+
+- `https://` è lo schema, che specifica il **protocollo** da utilizzare per accedere alla risorsa.
+- `www.example.com` è il nome del **dominio**, che indica il server dove la risorsa è ospitata.
+- `/articles/2023/03/15/my-article` è il **path**, che specifica il percorso preciso della risorsa sul server.
+
+Questo URL/URI **identifica univocamente una risorsa**, in questo caso, un articolo specifico su un sito web.
+
+L'immagine sottostante definisce meglio alcune parti dell'URL che vedremo più avanti:
+
+<img src="./immagini/URLschema.png" width="700"/>
+
 # Express
 
-## Inizializziamo una repo vuota
+## Cos'è Express?
+
+Express, è un **framework** per applicazioni web per Node.js. È progettato per costruire applicazioni web e API. Le sue funzionalità principali sono:
+
+- semplificare il processo di configurazione e gestione di un server web in Node.js
+- permette di definire le route (percorsi) dell'applicazione con metodi HTTP diversi (come GET, POST, PUT, DELETE) e di gestire le richieste e risposte HTTP. Questo rende Express molto utile per lo sviluppo di API RESTful.
+- offrire un sistema di [middleware](#middlewares), che consente agli sviluppatori di inserire logica a livelli diversi della richiesta HTTP. Un middleware può essere utilizzato per eseguire codice, apportare modifiche alle richieste e alle risposte, terminare il ciclo richiesta-risposta o chiamare il prossimo middleware nella pila.
+- fornire un robusto meccanismo di gestione degli errori. È possibile definire middleware specifici per la gestione degli errori che catturano e gestiscono eccezioni o errori HTTP.
+
+## Inizializzare un nuovo progetto back-end
 
 - creiamo una nuova cartella
 - lanciamo `npm init`
-- rispondiamo alle domande che vengono poste dal wizard
-- `npm install express`
+- rispondiamo alle domande che vengono poste dal wizard (o `npm init -y` per evitare le domande)
+- installiamo express con `npm install express`
 - ci assicuriamo che il nostro `.gitignore` includa `node_modules`
 - creiamo una directory `src` dentro la quale inseriamo il nostro `index.js` (questa è una convenzione, dettata dal fatto che se in un secondo momento aggiungessimo una fase di build, è comodo avere tutti i nostri file dentro una sola cartella)
 - infine, creiamo uno script che ci permette di lanciare il nostro server, generalmente lo script si chiama `dev` o `start`
