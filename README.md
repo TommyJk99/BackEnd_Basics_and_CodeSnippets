@@ -3,10 +3,11 @@
 🟢 ULTIMATO
 🟡 DA SISTEMARE
 🟠 DA FINIRE
+🔴 RIFARE
 
 - [Express](#express)
-  - [Inizializzazione🟡](#middleware-di-errore-più-complesso-con-spunti-interessanti)
-  - [Routing🟡](#cose-utili-per-il-routing)
+  - [Inizializzazione🔴](#middleware-di-errore-più-complesso-con-spunti-interessanti)
+  - [Routing🔴](#cose-utili-per-il-routing)
   - [Tenere traccia delle rotte🟡](#tenere-traccia-delle-rotte)
   - [Middlewares](#middlewares)
   - [Pagination](#pagination)
