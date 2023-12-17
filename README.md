@@ -595,6 +595,11 @@ const checkJwt = async (req, res, next) => {
 };
 
 export default checkJwt;
+
+//FILE UserRouter, applichiamo il middleware appena creato
+usersRouter.get("/:id", checkJwt, async (req, res) => {
+  res.status(200).json(req.user);
+});
 ```
 
 Descrizione del codice:
@@ -603,6 +608,7 @@ Descrizione del codice:
 - `const payload = jwt.verify(token, process.env.JWT_SECRET)` utilizza jsonwebtoken per verificare la validità del token utilizzando la chiave segreta (JWT_SECRET). Se il token è valido, estrae il payload
 - `req.user = await User.findById(payload.id).select("-password")` cerca nel database un utente con l'ID specificato nel payload del token. Esclude la password dal risultato
 - `next()`: se l'utente è stato trovato e il token è valido, chiama next() per procedere al prossimo middleware nella catena di Express
+- La parte finale del codice applica il middleware checkJwt a una richiesta GET. Se l'utente fornisce un token valido superando il controllo di checkJwt, la richiesta procede senza problemi.
 
 **Domanda**: come mai si aggiungono le informazioni dell'utente a `req.user` (levando di mezzo la password)?
 
