@@ -6,8 +6,11 @@
 🔴 RIFARE
 
 - [Intro](#Intro)
+  - [Definizione Server web](#definizione-server-web) 🟢
+  - [Definizione Libreria e Framework](#definizione-libreria-e-framework)🟠
+  - [Definizione Node.js](#definizione-node) 🟢
   - [Definizione API RESTful](#definizione-api-restful) 🟢
-  - [Definizione URL e URI](#definizione-uri-e-url) 🟡
+  - [Definizione URL e URI](#definizione-uri-e-url) 🟢
 - [Express](#express)
   - [Cos'è Express?](#cosè-express) 🟢
   - [Inizializzazione progetto🔴](#middleware-di-errore-più-complesso-con-spunti-interessanti)
@@ -32,6 +35,22 @@
 - [Altro 🟠](#altro)
 
 # Intro
+
+## Definizione Server web
+
+Un server web è un'applicazione software che, in esecuzione su un server, è in grado di gestire le richieste di trasferimento di pagine web di un client, tipicamente un web browser. La comunicazione tra server e client avviene tramite il protocollo HTTP, che utilizza la porta TCP 80 (o 8080), o eventualmente la versione sicura HTTPS, che utilizza invece la 443. Su un server web risiedono dunque i siti web tramite hosting.
+
+Teoricamente un qualsiasi dispositivo per cui sia disponibile qualche software che agisca come server web può diventare un server web, ma solitamente i dispositivi che ospitano server web sono sistemi hardware dedicati e ottimizzati a tale scopo. Ad esempio si può installare un server web su un normale PC allo scopo di testare in locale un insieme di pagine web oppure per consentire l'accesso ai propri documenti da altri client host, sia in rete locale, sia via Internet
+
+In particolare, nel nostro stack, <u>[Express](#express) è il componente che svolge il ruolo di web server</u>, gestendo le richieste HTTP inviate dai client e rispondendo con i dati appropriati, spesso interfacciandosi con [MongoDB](#mongodb-atlas) attraverso [Mongoose](#mongoose-con-express) per recuperare o salvare questi dati. Node.js supporta l'esecuzione di Express e di tutto il backend JavaScript.
+
+## Definizione libreria e framework
+
+## Definizione Node
+
+Node.js è un runtime system (OVVERO un software che fornisce i servizi necessari all'esecuzione di un programma) open source multipiattaforma orientato agli eventi per l'esecuzione di codice JavaScript, costruito sul motore JavaScript V8 di Google Chrome. Molti dei suoi moduli base sono scritti in JavaScript, e gli sviluppatori possono scrivere nuovi moduli nello stesso linguaggio di programmazione.
+
+In origine, JavaScript veniva utilizzato soprattutto lato client. In questo scenario gli script JavaScript, generalmente incorporati all'interno dell'HTML di una pagina web, vengono interpretati da un motore di esecuzione incorporato direttamente all'interno di un web browser. Node.js consente invece di utilizzare JavaScript anche per scrivere codice da eseguire lato server, ad esempio per la produzione del contenuto delle <u>pagine web dinamiche, prima che la pagina venga inviata al browser dell'utente.</u>
 
 ## Definizione API RESTful
 
