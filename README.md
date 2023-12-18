@@ -4,6 +4,7 @@
 🟡 DA SISTEMARE
 🟠 DA FINIRE
 🔴 RIFARE
+⤴️ TORNA ALL'INDICE
 
 - [Intro](#Intro)
   - [Definizione Server web](#definizione-server-web) 🟢
@@ -36,7 +37,7 @@
 
 # Intro
 
-## Definizione Server web
+## Definizione Server web [⤴️](#indice)
 
 Un server web è un'applicazione software che, in esecuzione su un server, è in grado di gestire le richieste di trasferimento di pagine web di un client, tipicamente un web browser. La comunicazione tra server e client avviene tramite il protocollo HTTP, che utilizza la porta TCP 80 (o 8080), o eventualmente la versione sicura HTTPS, che utilizza invece la 443. Su un server web risiedono dunque i siti web tramite hosting.
 
@@ -44,7 +45,13 @@ Teoricamente un qualsiasi dispositivo per cui sia disponibile qualche software c
 
 In particolare, nel nostro stack, <u>[Express](#express) è il componente che svolge il ruolo di web server</u>, gestendo le richieste HTTP inviate dai client e rispondendo con i dati appropriati, spesso interfacciandosi con [MongoDB](#mongodb-atlas) attraverso [Mongoose](#mongoose-con-express) per recuperare o salvare questi dati. Node.js supporta l'esecuzione di Express e di tutto il backend JavaScript.
 
-## Definizione libreria e framework
+## Definizione Librerie e Frameworks
+
+Una **libreria** è una <u>raccolta di funzioni e risorse riutilizzabili</u> che possono essere integrate in altre applicazioni. Le librerie forniscono specifiche funzionalità o set di funzioni che gli sviluppatori possono "chiamare" o utilizzare direttamente nel loro codice. L'uso di una libreria non impone una particolare struttura o modello al codice dell'applicazione. Esempi di libreria sono ad esempio **Mongoose** e **React**
+
+Un framework è un ambiente di lavoro strutturato che fornisce una base o uno scheletro per lo sviluppo di applicazioni. A differenza delle librerie, un framework impone un certo modello o architettura all'applicazione. Ecco alcuni esempi di frameworks:
+
+<img src="./immagini/Frameworks.png" width="600"/>
 
 ## Definizione Node
 
@@ -52,13 +59,13 @@ Node.js è un runtime system (OVVERO un software che fornisce i servizi necessar
 
 In origine, JavaScript veniva utilizzato soprattutto lato client. In questo scenario gli script JavaScript, generalmente incorporati all'interno dell'HTML di una pagina web, vengono interpretati da un motore di esecuzione incorporato direttamente all'interno di un web browser. Node.js consente invece di utilizzare JavaScript anche per scrivere codice da eseguire lato server, ad esempio per la produzione del contenuto delle <u>pagine web dinamiche, prima che la pagina venga inviata al browser dell'utente.</u>
 
-## Definizione API RESTful
+## Definizione API RESTful [⤴️](#indice)
 
 Un'**API RESTful** è un'interfaccia di programmazione delle applicazioni che aderisce ai principi dell'architettura REST (Representational State Transfer). Questo tipo di API utilizza i metodi standard HTTP (GET, POST, PUT, DELETE...) per interagire con risorse rappresentate, di solito, in formati come JSON o XML. In una API RESTful, <u>ogni risorsa è identificata univocamente tramite URI</u> (Uniform Resource Identifiers) e le operazioni disponibili su queste risorse sono definite dai metodi HTTP. Queste API sono state progettate per essere stateless, il che significa che ogni richiesta HTTP deve contenere tutte le informazioni necessarie per comprenderla, senza richiedere che il server memorizzi dati o stati della sessione dell'utente.
 
 <img src="./immagini/RESTful_API.png" width="700"/>
 
-## Definizione URI e URL
+## Definizione URI e URL [⤴️](#indice)
 
 In informatica, lo Uniform Resource Identifier (in acronimo `URI`) <u>è una sequenza di caratteri che identifica universalmente ed univocamente una risorsa</u>. Sono esempi di URI: un indirizzo web (URL), un documento, un indirizzo di posta elettronica, il codice ISBN di un libro, un numero di telefono col prefisso internazionale.
 
@@ -80,7 +87,7 @@ L'immagine sottostante definisce meglio alcune parti dell'URL che vedremo più a
 
 # Express
 
-## Cos'è Express?
+## Cos'è Express? [⤴️](#indice)
 
 Express, è un **framework** per applicazioni web per Node.js. È progettato per costruire applicazioni web e API. Le sue funzionalità principali sono:
 
@@ -112,7 +119,7 @@ server.listen(port, () => {
 });
 ```
 
-## COSE UTILI PER IL ROUTING:
+## COSE UTILI PER IL ROUTING: [⤴️](#indice)
 
 Questo comando analizza automaticamente i corpi delle richieste in arrivo nel formato JSON:
 
@@ -174,7 +181,7 @@ Inoltre è importante ricordarsi di importare i vari router:
 import apiRouter from "./apiRouter.js";
 ```
 
-## TENERE TRACCIA DELLE ROTTE
+## TENERE TRACCIA DELLE ROTTE [⤴️](#indice)
 
 Per tenere traccia delle varie rotte è possibile installare `npm install express-list-endpoints`. Una volta importato come `import list from "express-list-endpoints"` è possibile fare ciò che segue:
 
@@ -205,7 +212,7 @@ Così facendo a terminale si avrà la lista di tutte le rotte definite in Expres
 ]
 ```
 
-## MIDDLEWARES
+## MIDDLEWARES [⤴️](#indice)
 
 In Express, un middleware è una funzione che ha accesso agli oggetti di richiesta (request), risposta (response), e al successivo middleware nella catena delle richieste. Esso può eseguire operazioni su tali oggetti, modificare la richiesta e la risposta, o terminare la catena delle richieste. I middleware sono utilizzati per aggiungere funzionalità, gestire richieste e risposte, nonché per eseguire azioni specifiche durante il ciclo di vita di una richiesta HTTP.
 
@@ -285,7 +292,7 @@ Quando si verifica un errore in un middleware o in una route di Express, può es
 
 È una pratica comune avere una catena di middleware prima del middleware di errore per eseguire operazioni specifiche della richiesta, e il middleware di errore viene utilizzato per gestire errori imprevisti durante queste operazioni
 
-### Try and catch e next(error)
+### Try and catch e next(error) [⤴️](#indice)
 
 #### Qual è la differenza tra queste due porzioni di codice?
 
@@ -370,7 +377,7 @@ export const errorMiddleware = (err, req, res, next) => {
 - Logga l'errore per eventuali azioni di troubleshooting o logging personalizzate.
 - Invia una risposta JSON al client con il codice di stato e il messaggio appropriati.
 
-## Pagination
+## Pagination [⤴️](#indice)
 
 ### Limit e skip
 
@@ -420,7 +427,7 @@ Utilizzando l'URL `http://localhost:3030/api/products/?limit=10&skip=2`, la rich
 
 Questo codice utilizza i parametri `sortBy` e `order` dalla query per consentire un ordinamento flessibile dei risultati di ricerca. Ad esempio, è possibile ordinare i prodotti per prezzo, nome o qualsiasi altro campo specificato dinamicamente. Nel codice precedente invece, l'ordinamento è fisso sul campo "price" in ordine crescente, senza la possibilità di variare il campo di ordinamento o l'ordine risultante. Un ipotetico URL per sfruttare appieno il codice può essere: `http://localhost:3030/api/products/?limit=10&sortBy=price&order=ascending`
 
-## Importare file con multer
+## Importare file con multer [⤴️](#indice)
 
 Multer è una libreria middleware per Node.js che facilita il caricamento di file in applicazioni web. È ampiamente utilizzata con il framework Express per gestire i dati di tipo multipart/form-data, che è il formato utilizzato per caricare file da un form HTML.
 
@@ -466,7 +473,7 @@ Analizziamo meglio il codice:
 5. `if (["image/jpeg", "image/png"].includes(file.mimetype))` controlla se il file caricato è il formato giusto se no da errore
 6. `const upload = multer({ storage })` così facendo viene creato il middleware
 
-## CDN (content delivery network)
+## CDN (content delivery network) [⤴️](#indice)
 
 Un CDN, o Content Delivery Network, è una rete di server distribuiti geograficamente progettata per fornire contenuti web, come immagini, video e pagine HTML, agli utenti in modo più rapido ed efficiente. Quando un utente accede a un sito web, il CDN reindirizza la richiesta al server più vicino geograficamente, riducendo il tempo di caricamento del sito e migliorando l'esperienza dell'utente. Questo è particolarmente utile per siti con traffico elevato o con una base di utenti globale, poiché aiuta a gestire grandi volumi di traffico e riduce il rischio di congestione della rete.
 
@@ -504,7 +511,7 @@ apiRouter.patch("/multipart", upload.single("avatar"), (req, res, next) => {
 - login: yivegoj751@mcenb.com
 - pssw: Epic0de!
 
-## Inviare un' email con Resend
+## Inviare un' email con Resend [⤴️](#indice)
 
 ...
 
@@ -567,13 +574,13 @@ Questo comando utilizza la destrutturazione degli oggetti in JavaScript per otte
 `__v` è un campo interno utilizzato da Mongoose per la gestione della versione del documento. Anche questo viene estratto e ignorato.
 `...newUserWithoutPassword` raccoglie tutte le restanti proprietà di newUser (esclusi password e \_\_v) in un nuovo oggetto chiamato newUserWithoutPassword. Oggetto che viene infine resituito al client se tutto è andato a buon fine.
 
-### JWT definizione
+### JWT definizione [⤴️](#indice)
 
 JWT, acronimo di JSON Web Token, è uno standard aperto (RFC 7519) per la creazione di token di accesso che permettono la trasmissione sicura di informazioni tra due parti, tipicamente un server e un client.
 
 Un token JWT è composto da tre parti separate da punti: l'intestazione (header), il carico utile (payload) e la firma (signature).
 
-![Alt text](./immagini/jwt_ex.png)
+![Alt text](./immagini/Jwt_ex.png)
 
 1. L'intestazione (in rosso) contiene informazioni sul tipo di token (JWT) e l'algoritmo di crittografia utilizzato.
 2. Il payload (in viola) include le affermazioni (claims), ovvero le informazioni specifiche dell'utente o altre informazioni necessarie.
@@ -627,7 +634,7 @@ Descrizione del codice sopra:
 
 Vediamo queste cose in dettaglio:
 
-### Come utilizzare JWT (controllo del Token tramite middleware)
+### Come utilizzare JWT (controllo del Token tramite middleware) [⤴️](#indice)
 
 Una volta fornito il token JWT all'utente, è essenziale avere un meccanismo che, ad ogni richiesta al server, controlli la validità del token. Questo viene realizzato tramite il seguente middleware:
 
@@ -674,7 +681,7 @@ Descrizione del codice:
 
 **Risposta**: perchè quando un utente effettua una richiesta al server e viene autenticato tramite un token JWT, è utile avere un modo rapido e conveniente per accedere alle informazioni di quell'utente in seguito nella catena di middleware o nei controller. Impostando req.user, si aggiungono questi dettagli all'oggetto della richiesta (req), rendendoli facilmente accessibili in qualsiasi punto successivo del ciclo di vita della richiesta.
 
-### OAuth
+### OAuth [⤴️](#indice)
 
 ### Come implementare OAuth nel nostro progetto
 
@@ -762,7 +769,7 @@ db.collection("studenti").find({
 });
 ```
 
-## Utilizzo queries su mongoDB Compass
+## Utilizzo queries su mongoDB Compass [⤴️](#indice)
 
 All'interno di mongoDB Compass le queries si scriveranno in questo modo:
 
@@ -790,7 +797,7 @@ All'interno di mongoDB Compass le queries si scriveranno in questo modo:
 //restituisce gli eyeColor con colori diversi da 'green' e 'blue'
 ```
 
-## Esempi di utilizzo delle queries con Mongoose
+## Esempi di utilizzo delle queries con Mongoose [⤴️](#indice)
 
 ### Esempio 1 (cerco oggetti nel DB in un range di prezzo)
 
@@ -883,7 +890,7 @@ productsRouter.get("/", async (req, res, next) => {
 //della serie: se voglio complicarmi la vita posso benissimo riuscirci
 ```
 
-### Altre divagazioni sull'esempio 1
+### Altre divagazioni sull'esempio 1 [⤴️](#indice)
 
 ```js
 const priceFilter = {};
@@ -988,7 +995,7 @@ productsRouter.get("/", async (req, res, next) => {
 //è un po' too much al momento quindi per ora ciccia, anche se ci sono spunti interessanti
 ```
 
-## Potenziali vulnerabilità e soluzioni (query)
+## Potenziali vulnerabilità e soluzioni (query) [⤴️](#indice)
 
 A che vulnerabilità è sottoposto questo codice?
 
@@ -1068,7 +1075,7 @@ const products = await Product.find({
 Aggiungi una gestione degli errori adeguata per catturare qualsiasi problema che possa verificarsi durante la validazione o l'interazione con il database.
 Questo approccio riduce significativamente il rischio di iniezione NoSQL e protegge l'applicazione da input malevoli o non validi. Inoltre, limitando i valori di limit e skip, riduci il rischio di sovraccarico del database.
 
-## Lista dei possibili Query Selectors
+## Lista dei possibili Query Selectors [⤴️](#indice)
 
 `Seq` 👉 Matches values that are equal to a specified value.
 
@@ -1156,7 +1163,7 @@ mongoose
   });
 ```
 
-## Esempi CRUD:
+## Esempi CRUD: [⤴️](#indice)
 
 ### Esempio chiamate GET (ricerca con find)
 
@@ -1240,7 +1247,7 @@ userRouter.get("/:id", async (req, res, next) => {
 
 `{ comments: { $elemMatch: { _id: commentId } } }` è una proiezione che utilizza l'operatore `$elemMatch`. Questo operatore filtra l'array comments del post del blog, <u>restituendo solo il commento che ha l'ID corrispondente a commentId</u>. In questo modo, anche se ci sono molti commenti, solo quello richiesto viene restituito.
 
-### Esempio chiamata POST (new e save)
+### Esempio chiamata POST (new e save) [⤴️](#indice)
 
 - In questo esempio vado a creare un nuovo utente tramite una richiesta POST:
 
@@ -1329,7 +1336,7 @@ userRouter.put("/:id", async (req, res, next) => {
   });
 ```
 
-### Esempio chiamata DELETE
+### Esempio chiamata DELETE [⤴️](#indice)
 
 - In questo esempio elimino un utente:
 
@@ -1376,7 +1383,7 @@ userRouter.delete("/:id", async (req, res, next) => {
   });
 ```
 
-## Schemi e modelli
+## Schemi e modelli [⤴️](#indice)
 
 - questo codice definisce uno <b>schema Mongoose</b> per un modello chiamato Author, che rappresenta gli autori in un'applicazione. Gli autori sono rappresentati come documenti in una collezione chiamata "authors", e ogni autore ha campi come name, lastname, age, email, birthday, e avatar. Il modello Mongoose Author fornisce un'interfaccia per effettuare operazioni CRUD (Create, Read, Update, Delete) sulla collezione di autori nel database MongoDB:
 
@@ -1472,7 +1479,7 @@ const postSchema = new mongoose.Schema({
 
 In questo caso, stiamo utilizzando l'embedding (incorporamento) per rappresentare l'autore di un post. Il problema principale qui è la <u>potenziale incosistenza dei dati</u>. Se un utente aggiorna il suo nome o email nel database, questi cambiamenti non si rifletteranno automaticamente nei post esistenti, perché l'informazione dell'autore è duplicata e incorporata direttamente nello schema del post.
 
-### Embedding
+### Embedding [⤴️](#indice)
 
 - Nell'embedding, un documento completo (come un utente) è inserito direttamente in un altro documento (come un post). Modifichiamo lo schema Post per incorporare l'intero documento User:
 
@@ -1513,7 +1520,7 @@ Si usa la population quando:
 1. hai una relazione tra due collezioni (es. Utenti e Post) dove una collezione fa riferimento all'altra tramite un ID o un campo simile.
 2. <u>vuoi recuperare dati completi da entrambe le collezioni in una singola query</u>, invece di dover prima recuperare i dati da una collezione e poi eseguire query separate per ottenere dati correlati dalla seconda collezione.
 
-### Esempio di referencing e population
+### Esempio di referencing e population [⤴️](#indice)
 
 1. si definisce uno schema per gli utenti:
 
@@ -1562,7 +1569,7 @@ In questo codice:
 
 - Quando eseguo `.populate("author", "-_id -__v")`, Mongoose effettua internamente una <u>doppia query</u>. La prima query recupera tutti i documenti dalla collezione Post. Successivamente, per ogni documento post recuperato, Mongoose effettua una seconda query per trovare e inserire i dati relativi all'autore (author) da una collezione separata (di solito una collezione di utenti o autori).
 
-## Utilizzo variabili d'ambiente
+## Utilizzo variabili d'ambiente [⤴️](#indice)
 
 - se voglio utilizare variabili d'ambiente è utile scaricare il pacchetto `dotenv` che andrà importato all'inizio del mio file principale nel seguente modo:
 
@@ -1589,7 +1596,7 @@ dotenv.config();
 - `503 Service Unavailable` ➡️ il server non è disponibile al momento. Solitamente temporaneo, il server può essere sovraccarico o in manutenzione.
 - `504 Gateway Timeout` ➡️ il server, mentre funzionante come gateway o proxy, non ha ricevuto una risposta tempestiva dal server upstream.
 
-## Link utili
+## Link utili [⤴️](#indice)
 
 - https://temp-mail.org/en/ nel caso volessi creare una email temporanea
 - https://www.submarinecablemap.com/ per vedere il traffico dati sottomarino
@@ -1601,4 +1608,5 @@ dotenv.config();
 - https://www.md5hashgenerator.com/ generatore di Hash
 - https://www.iubenda.com/ generatore di documenti per privacy, cookie etc.
 - https://jwt.io/ per decodificare Token
+- https://stateofcss.com/en-US dati attuali su CSS e frameworks
 - openssl rand -hex 64
