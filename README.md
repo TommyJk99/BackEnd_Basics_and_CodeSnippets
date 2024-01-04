@@ -1610,3 +1610,4 @@ dotenv.config();
 - https://jwt.io/ per decodificare Token
 - https://stateofcss.com/en-US dati attuali su CSS e frameworks
 - openssl rand -hex 64
+ aggiornare sito
